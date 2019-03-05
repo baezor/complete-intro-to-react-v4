@@ -7,7 +7,12 @@ import Results from './Results';
 import Details from './Details';
 import SearchParams from './SearchParams';
 
+import Hero from './Hero';
+import NavBar from './NavBar';
+
+import 'bulma/css/bulma.css'
 import './style.css';
+
 
 
 const petfinder = pf({
@@ -77,22 +82,27 @@ class App extends React.Component {
 
   render(){
     return(
-      <div className="App">
-        <Link to="/">
-          <h1>Adopt me!</h1>
-        </Link>
-        <Link to="/search-params">
-        <span arial-label="search" role="img">
-        search
-        </span>
-        </Link>
-        <Provider value={this.state}>
-          <Router>  
-            <Results path="/" />
-            <Details path="/details/:id" />
-            <SearchParams path="/search-params" />
-          </Router>
-        </Provider>
+      <div className="container">
+        <NavBar />
+        <Hero />
+      
+        <div className="App">
+          <Link to="/">
+            <h1>Adopt me!</h1>
+          </Link>
+          <Link to="/search-params">
+          <span arial-label="search" role="img">
+          search
+          </span>
+          </Link>
+          <Provider value={this.state}>
+            <Router>  
+              <Results path="/" />
+              <Details path="/details/:id" />
+              <SearchParams path="/search-params" />
+            </Router>
+          </Provider>
+        </div>
       </div>
     )
   }
